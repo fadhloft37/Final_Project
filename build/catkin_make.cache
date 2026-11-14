@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/fadhloft/internship/FP/devel -DCMAKE_INSTALL_PREFIX=/home/fadhloft/internship/FP/install -G Unix Makefiles
