@@ -1,0 +1,2 @@
+pyramid_arm
+-DCATKIN_DEVEL_PREFIX=/home/fadhloft/internship/fp_ws/devel -DCMAKE_INSTALL_PREFIX=/home/fadhloft/internship/fp_ws/install -G Unix Makefiles

@@ -1,0 +1,26 @@
+<launch>
+  <arg name="send"    default="false"/>
+  <arg name="brain"   default="true"/>
+  <arg name="vision"  default="true"/>
+  <arg name="show"    default="true"/>
+  <arg name="mode"    default="hw"/>
+  <arg name="cam_url" default="http://10.161.126.195:8080/video"/>
+
+  <node pkg="pyramid_arm" type="bridge_node" name="bridge_node" output="screen">
+    <param name="send" value="$(arg send)"/>
+  </node>
+
+  <group if="$(arg vision)">
+    <node pkg="pyramid_arm" type="vision_node.py" name="vision_node" output="screen">
+      <param name="mode"      value="$(arg mode)"/>
+      <param name="show"      value="$(arg show)"/>
+      <param name="source"    value="camera"/>              
+      <param name="camera_id" value="$(arg cam_url)"/>    
+    </node>
+  </group>
+
+  <group if="$(arg brain)">
+    <node pkg="pyramid_arm" type="brain_node" name="brain_node" output="screen"
+          launch-prefix="bash -c 'sleep 3; $0 $@'"/>
+  </group>
+</launch>

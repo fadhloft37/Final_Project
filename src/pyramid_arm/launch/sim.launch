@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="pyramid_arm" type="sim_node"    name="sim_node"    output="screen"/>
+  <node pkg="pyramid_arm" type="vision_node.py" name="vision_node" output="screen"/>
+  <node pkg="pyramid_arm" type="brain_node"  name="brain_node"  output="screen"/>
+</launch>

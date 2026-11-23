@@ -1,0 +1,8 @@
+prefix=/home/fadhloft/internship/fp_ws/devel
+
+Name: pyramid_arm
+Description: Description of pyramid_arm
+Version: 0.0.0
+Cflags: -I/home/fadhloft/internship/fp_ws/src/pyramid_arm/include
+Libs: -L${prefix}/lib 
+Requires: cv_bridge geometry_msgs image_transport roscpp rospy sensor_msgs std_msgs geometry_msgs

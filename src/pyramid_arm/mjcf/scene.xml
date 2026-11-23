@@ -1,0 +1,70 @@
+<mujoco model="scene">
+  <include file="ASSMB_Newest.xml"/>
+
+  <visual>
+    <!-- ukuran gambar kamera offscreen (dipakai sim_node untuk /camera/image_raw) -->
+    <global offwidth="640" offheight="480"/>
+    <headlight ambient="0.25 0.25 0.25" diffuse="0.35 0.35 0.35" specular="0 0 0"/>
+    <quality shadowsize="2048"/>
+  </visual>
+
+  <default>
+    <default class="balok">
+      <geom contype="1" conaffinity="1" condim="4" friction="1 0.005 0.0001"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <light pos="0.15 0 1.5" dir="0 0 -1" diffuse="0.4 0.4 0.4" specular="0 0 0"/>
+
+    <geom name="lantai" type="plane" size="1 1 0.1" rgba="0.85 0.85 0.85 1"
+          contype="1" conaffinity="1" friction="1 0.005 0.0001"/>
+
+    <!-- Kamera top-down: tinggi 0.7 m, tegak lurus ke bawah.
+         Gambar: kanan = +x dunia, atas = +y dunia. -->
+    <camera name="top" pos="0.24 0 0.956" xyaxes="0 -1 0 1 0 0" fovy="30"/>
+    <!-- Balok bentuk spool: flens bawah 50x50x10, badan silinder d=30 (tinggi 40), flens atas 50x50x10. Tinggi total 60 mm. -->
+
+    <!-- 3 JINGGA -->
+    <body name="balok1" pos="0.3 0.0 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="1 0.5 0 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+    </body>
+    <body name="balok2" pos="0.15 0.2 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="1 0.5 0 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+    </body>
+    <body name="balok3" pos="0.25 0.1 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="1 0.5 0 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="1 0.5 0 1"/>
+    </body>
+
+    <!-- 2 HIJAU -->
+    <body name="balok4" pos="0.35 0.1 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.05 0.05 0.05 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="0.05 0.05 0.05 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.05 0.05 0.05 1"/>
+    </body>
+    <body name="balok5" pos="0.25 0.2 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.05 0.05 0.05 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="0.05 0.05 0.05 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.05 0.05 0.05 1"/>
+    </body>
+
+    <!-- 1 BEIGE -->
+    <body name="balok6" pos="0.4 0.0 0.03" childclass="balok">
+      <freejoint/>
+      <geom type="box" pos="0 0 -0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.9 0.82 0.62 1"/>
+      <geom type="cylinder" pos="0 0 0" size="0.015 0.02" mass="0.02" rgba="0.9 0.82 0.62 1"/>
+      <geom type="box" pos="0 0 0.025" size="0.025 0.025 0.005" mass="0.015" rgba="0.9 0.82 0.62 1"/>
+    </body>
+  </worldbody>
+</mujoco>
